@@ -29,27 +29,7 @@ export default function Footer() {
                   Контакты
                 </a>
               </div>
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Услуги</h3>
-                <a
-                  href="#modular"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Модульные дома
-                </a>
-                <a
-                  href="#blocks"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Мегаблоки
-                </a>
-                <a
-                  href="#projects"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Проекты
-                </a>
-              </div>
+
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Контакты</h3>
                 <p className="text-white text-sm sm:text-base">г. Хабаровск</p>
