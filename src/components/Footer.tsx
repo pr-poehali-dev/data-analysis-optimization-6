@@ -60,8 +60,8 @@ export default function Footer() {
                 <a href="tel:+79622237967" className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base">
                   +7 (962) 223 79 67
                 </a>
-                <a href="mailto:plastmaster27r@mail.ru" className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base">
-                  plastmaster27r@mail.ru
+                <a href="mailto:plastmaster27@mail.ru" className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base">
+                  plastmaster27@mail.ru
                 </a>
               </div>
             </div>
