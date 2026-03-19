@@ -1,7 +1,9 @@
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import RequestModal from "@/components/RequestModal";
 
 export default function Hero() {
+  const [modalOpen, setModalOpen] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -34,10 +36,15 @@ export default function Hero() {
         <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90 leading-relaxed">
           Модульные дома из пазогребневых мегаблоков полистиролбетона — тепло, надёжно и в срок
         </p>
-        <button className="mt-10 bg-white text-black px-8 py-3 text-sm uppercase tracking-widest font-semibold hover:bg-neutral-200 transition-colors duration-300 cursor-pointer">
+        <button
+          onClick={() => setModalOpen(true)}
+          className="mt-10 bg-white text-black px-8 py-3 text-sm uppercase tracking-widest font-semibold hover:bg-neutral-200 transition-colors duration-300 cursor-pointer"
+        >
           Узнать стоимость
         </button>
       </div>
+
+      <RequestModal open={modalOpen} onOpenChange={setModalOpen} />
     </div>
   );
 }
