@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Icon from "@/components/ui/icon";
+import RequestModal from "@/components/RequestModal";
 
 interface HeaderProps {
   className?: string;
@@ -7,6 +8,7 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,11 +67,21 @@ export default function Header({ className }: HeaderProps) {
                     plastmaster27@mail.ru
                   </a>
                 </div>
+                <div className="border-t pt-4 mt-1">
+                  <button
+                    onClick={() => { setOpen(false); setModalOpen(true); }}
+                    className="w-full py-2.5 bg-black text-white text-sm uppercase tracking-widest font-semibold hover:bg-neutral-800 transition-colors cursor-pointer"
+                  >
+                    Оставить заявку
+                  </button>
+                </div>
               </div>
             )}
           </div>
         </nav>
       </div>
+
+      <RequestModal open={modalOpen} onOpenChange={setModalOpen} />
     </header>
   );
 }
