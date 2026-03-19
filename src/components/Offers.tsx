@@ -39,55 +39,60 @@ export default function Offers() {
           {offers.map((offer) => (
             <div
               key={offer.name}
-              className={`relative flex flex-col p-8 border transition-shadow duration-300 hover:shadow-lg overflow-hidden ${
+              className={`relative flex flex-col border transition-shadow duration-300 hover:shadow-lg overflow-hidden ${
                 offer.highlight
                   ? "bg-black text-white border-black"
                   : "bg-white text-black border-neutral-200"
               }`}
             >
-              {offer.image && (
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-20"
-                  style={{ backgroundImage: `url(${offer.image})` }}
-                />
-              )}
               {offer.highlight && (
-                <span className="absolute top-0 right-0 bg-white text-black text-xs uppercase tracking-widest px-3 py-1 font-semibold">
+                <span className="absolute top-0 right-0 z-10 bg-white text-black text-xs uppercase tracking-widest px-3 py-1 font-semibold">
                   {offer.label}
                 </span>
               )}
-              {!offer.highlight && (
-                <span className="text-xs uppercase tracking-widest text-neutral-400 mb-4 font-semibold">
-                  {offer.label}
-                </span>
+
+              {offer.image ? (
+                <div className="h-52 w-full overflow-hidden">
+                  <img src={offer.image} alt={offer.name} className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className={`h-52 w-full ${offer.highlight ? "bg-neutral-800" : "bg-neutral-100"}`} />
               )}
-              {offer.highlight && <div className="mb-4" />}
 
-              <h3 className="text-2xl font-bold mb-1">{offer.name}</h3>
-              <p className={`text-sm mb-6 ${offer.highlight ? "text-neutral-400" : "text-neutral-500"}`}>
-                Площадь: {offer.area}
-              </p>
+              <div className="flex flex-col flex-1 p-8">
+                {!offer.highlight && (
+                  <span className="text-xs uppercase tracking-widest text-neutral-400 mb-4 font-semibold">
+                    {offer.label}
+                  </span>
+                )}
+                {offer.highlight && <div className="mb-4" />}
 
-              <ul className="flex flex-col gap-2 mb-8 flex-1">
-                {offer.features.map((f) => (
-                  <li key={f} className={`text-sm flex items-center gap-2 ${offer.highlight ? "text-neutral-300" : "text-neutral-600"}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${offer.highlight ? "bg-white" : "bg-black"}`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
+                <h3 className="text-2xl font-bold mb-1">{offer.name}</h3>
+                <p className={`text-sm mb-6 ${offer.highlight ? "text-neutral-400" : "text-neutral-500"}`}>
+                  Площадь: {offer.area}
+                </p>
 
-              <div className="border-t pt-6 mt-auto ${offer.highlight ? 'border-neutral-700' : 'border-neutral-200'}">
-                <p className="text-xl font-bold mb-4">{offer.price}</p>
-                <button
-                  className={`w-full py-3 text-sm uppercase tracking-widest font-semibold transition-colors duration-300 cursor-pointer ${
-                    offer.highlight
-                      ? "bg-white text-black hover:bg-neutral-200"
-                      : "bg-black text-white hover:bg-neutral-800"
-                  }`}
-                >
-                  Узнать подробнее
-                </button>
+                <ul className="flex flex-col gap-2 mb-8 flex-1">
+                  {offer.features.map((f) => (
+                    <li key={f} className={`text-sm flex items-center gap-2 ${offer.highlight ? "text-neutral-300" : "text-neutral-600"}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${offer.highlight ? "bg-white" : "bg-black"}`} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className={`border-t pt-6 mt-auto ${offer.highlight ? "border-neutral-700" : "border-neutral-200"}`}>
+                  <p className="text-xl font-bold mb-4">{offer.price}</p>
+                  <button
+                    className={`w-full py-3 text-sm uppercase tracking-widest font-semibold transition-colors duration-300 cursor-pointer ${
+                      offer.highlight
+                        ? "bg-white text-black hover:bg-neutral-200"
+                        : "bg-black text-white hover:bg-neutral-800"
+                    }`}
+                  >
+                    Узнать подробнее
+                  </button>
+                </div>
               </div>
             </div>
           ))}
