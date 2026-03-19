@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка заявки с сайта на почту plastmaster27@mail.ru"""
+    """Отправка заявки с сайта на почту mr.mitya.lun@mail.ru"""
     headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -34,7 +34,7 @@ def handler(event: dict, context) -> dict:
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f'Новая заявка с сайта ФормаЛюксДВ'
     msg['From'] = 'plastmaster27@mail.ru'
-    msg['To'] = 'plastmaster27@mail.ru'
+    msg['To'] = 'mr.mitya.lun@mail.ru'
 
     offer_line = f'<tr><td style="padding:6px 0;color:#666">Интерес:</td><td style="padding:6px 0"><b>{offer}</b></td></tr>' if offer else ''
     comment_line = f'<tr><td style="padding:6px 0;color:#666">Комментарий:</td><td style="padding:6px 0">{message}</td></tr>' if message else ''
@@ -55,7 +55,7 @@ def handler(event: dict, context) -> dict:
 
     with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
         server.login('plastmaster27@mail.ru', smtp_password)
-        server.sendmail('plastmaster27@mail.ru', 'plastmaster27@mail.ru', msg.as_string())
+        server.sendmail('plastmaster27@mail.ru', 'mr.mitya.lun@mail.ru', msg.as_string())
 
     return {
         'statusCode': 200,
