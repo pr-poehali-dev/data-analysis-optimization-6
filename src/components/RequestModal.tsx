@@ -27,9 +27,16 @@ export default function RequestModal({ open, onOpenChange, offerName }: RequestM
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setSent(true);
+    try {
+      await fetch("https://functions.poehali.dev/907051f5-32c9-4d04-a281-30711d9ce9c4", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, message, offer: offerName || "" }),
+      });
+    } finally {
+      setLoading(false);
+      setSent(true);
+    }
   };
 
   const handleClose = (val: boolean) => {
