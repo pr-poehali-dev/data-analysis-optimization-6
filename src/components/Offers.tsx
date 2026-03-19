@@ -1,4 +1,15 @@
+import { useState } from "react";
+import RequestModal from "@/components/RequestModal";
+
 export default function Offers() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedOffer, setSelectedOffer] = useState<string | undefined>();
+
+  const handleRequest = (offerName: string) => {
+    setSelectedOffer(offerName);
+    setModalOpen(true);
+  };
+
   const offers = [
     {
       label: "Эконом",
@@ -84,6 +95,7 @@ export default function Offers() {
                 <div className={`border-t pt-6 mt-auto ${offer.highlight ? "border-neutral-700" : "border-neutral-200"}`}>
                   <p className="text-xl font-bold mb-4">{offer.price}</p>
                   <button
+                    onClick={() => handleRequest(offer.name)}
                     className={`w-full py-3 text-sm uppercase tracking-widest font-semibold transition-colors duration-300 cursor-pointer ${
                       offer.highlight
                         ? "bg-white text-black hover:bg-neutral-200"
@@ -98,6 +110,12 @@ export default function Offers() {
           ))}
         </div>
       </div>
+
+      <RequestModal
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        offerName={selectedOffer}
+      />
     </section>
   );
 }
