@@ -7,9 +7,11 @@ export default function Offers() {
       price: "от 1 200 000 ₽",
       features: ["1 этаж", "2 комнаты", "Кухня-гостиная", "Санузел"],
       highlight: false,
+      image: "https://cdn.poehali.dev/projects/15f79b74-430a-4a44-9562-a96520a2f32f/files/24b6eaa0-8b06-4094-82fc-701efca21574.jpg",
     },
     {
       label: "Популярный",
+      image: undefined,
       name: "Дом «Комфорт»",
       area: "60 м²",
       price: "от 2 100 000 ₽",
@@ -23,6 +25,7 @@ export default function Offers() {
       price: "от 3 500 000 ₽",
       features: ["2 этажа", "4 комнаты", "Кухня-гостиная", "2 санузла", "Терраса"],
       highlight: false,
+      image: undefined,
     },
   ];
 
@@ -36,12 +39,18 @@ export default function Offers() {
           {offers.map((offer) => (
             <div
               key={offer.name}
-              className={`relative flex flex-col p-8 border transition-shadow duration-300 hover:shadow-lg ${
+              className={`relative flex flex-col p-8 border transition-shadow duration-300 hover:shadow-lg overflow-hidden ${
                 offer.highlight
                   ? "bg-black text-white border-black"
                   : "bg-white text-black border-neutral-200"
               }`}
             >
+              {offer.image && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{ backgroundImage: `url(${offer.image})` }}
+                />
+              )}
               {offer.highlight && (
                 <span className="absolute top-0 right-0 bg-white text-black text-xs uppercase tracking-widest px-3 py-1 font-semibold">
                   {offer.label}
