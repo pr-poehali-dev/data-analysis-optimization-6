@@ -7,7 +7,7 @@ export default function Offers() {
       price: "от 1 200 000 ₽",
       features: ["1 этаж", "2 комнаты", "Кухня-гостиная", "Санузел"],
       highlight: false,
-      image: "https://cdn.poehali.dev/projects/15f79b74-430a-4a44-9562-a96520a2f32f/files/24b6eaa0-8b06-4094-82fc-701efca21574.jpg",
+      image: "https://cdn.poehali.dev/projects/15f79b74-430a-4a44-9562-a96520a2f32f/bucket/2b46364a-ebda-49d6-a124-ab55cd37cd4e.png",
     },
     {
       label: "Популярный",
