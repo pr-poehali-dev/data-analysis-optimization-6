@@ -25,7 +25,7 @@ export default function Offers() {
       price: "от 3 500 000 ₽",
       features: ["2 этажа", "4 комнаты", "Кухня-гостиная", "2 санузла", "Терраса"],
       highlight: false,
-      image: undefined,
+      image: "https://cdn.poehali.dev/projects/15f79b74-430a-4a44-9562-a96520a2f32f/bucket/1f56ec81-0a9b-4a77-ab35-89f2ad9b01c8.png",
     },
   ];
 
