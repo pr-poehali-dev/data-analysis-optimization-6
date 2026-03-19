@@ -11,7 +11,7 @@ export default function Offers() {
     },
     {
       label: "Популярный",
-      image: undefined,
+      image: "https://cdn.poehali.dev/projects/15f79b74-430a-4a44-9562-a96520a2f32f/bucket/1cacd769-06f8-4bca-b410-67f3bc7060c0.png",
       name: "Дом «Комфорт»",
       area: "60 м²",
       price: "от 2 100 000 ₽",
